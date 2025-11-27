@@ -213,7 +213,10 @@
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1MjM2YjQ3Ny02Yzc0LTRmY2ItYjJhNC0xZDkwNjQyNDQ3NGUiLCJpZCI6MTgxNzEyLCJpYXQiOjE3NjI0MTQwNzd9.vUhIK2BwKIKIdJCT3v5pTUaMmQnCNWn9OhjuSVgYly0';
 
         // ========== INISIALISASI VIEWER ==========
-        viewer.scene.globe.show = false;
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: new Cesium.EllipsoidTerrainProvider(), // 🌍 permukaan datar
+            baseLayerPicker: false,  // opsional: hilangkan tombol pilih base layer
+        });
 
 
 
