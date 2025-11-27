@@ -199,10 +199,7 @@
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1MjM2YjQ3Ny02Yzc0LTRmY2ItYjJhNC0xZDkwNjQyNDQ3NGUiLCJpZCI6MTgxNzEyLCJpYXQiOjE3NjI0MTQwNzd9.vUhIK2BwKIKIdJCT3v5pTUaMmQnCNWn9OhjuSVgYly0';
 
         // ========== INISIALISASI VIEWER ==========
-        const viewer = new Cesium.Viewer("cesiumContainer", {
-              baseLayerPicker: false,
-              imageryProvider: false,
-        });
+        viewer.scene.globe.show = false;
 
 
 
