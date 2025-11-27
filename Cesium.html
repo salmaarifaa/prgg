@@ -325,6 +325,18 @@
             duration: 3
         });
 
+        tileset.readyPromise.then(() => {
+        // koordinat lokasi asli
+        const lon = 110.427743;
+        const lat = -7.591640;
+        const height = 100;
+    
+        const translation = Cesium.Cartesian3.fromDegrees(lon, lat, height);
+        tileset.root.transform = Cesium.Transforms.eastNorthUpToFixedFrame(translation);
+    
+        viewer.zoomTo(tileset);
+    });
+
         // ========== TAMBAHKAN INTERAKSI KLIK ==========
         const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
         handler.setInputAction((movement) => {
