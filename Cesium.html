@@ -40,7 +40,8 @@
         #cesiumContainer {
             width: 100%;
             height: 90vh;
-            margin-top: 70px;
+            margin-top: 0px;
+            margin-bottom: 0px;
             border: 2px solid #004A74;
         }
 
@@ -49,6 +50,25 @@
             position: fixed;
             top: 100px;
             left: 15px;
+        }
+
+        #toolbar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            z-index: 999;
+            font-family: sans-serif;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 5px;
         }
     </style>
 </head>
@@ -123,33 +143,15 @@
 
     <script type="module">
         // ========== KONFIGURASI DASAR ==========
-        //const terrainID = 2918417;  // ID terrain dari Cesium Ion
+        const terrainID = 2918417;  // ID terrain dari Cesium Ion
 
         // ID untuk 3 model berbeda
-        const modelAssets = [
+        const modelAssets = [  
         {
-
-                id: 4019777,
+                id: 4163561,
                 name: " ",
                 description: `
-        <div style="text-align:center">
-            <h3>Perumahan Warga</h3>
-            <p>Perumahan Warga.</p>
-            <ul style="text-align:left">
-                <li><b>Lokasi:</b> Sleman, Yogyakarta</li>
-                <li><b>Koordinat:</b> 110.427743° BT, -7.591640° LS</li>
-            </ul>
-        </div>
-    `,
-                coords: [110.427743, -7.591640, 50],
-
-
-            },
-            {
-                id: 4067989,
-                name: " ",
-                description: `
-                <h3>Gapura</h3>
+                <h3>DTM Ortho</h3>
                 <p>Gapura Bumi Perkemahan.</p>
                 <ul>
                     <img src="assets/img/gapura.jpg" alt="Gapura" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
@@ -158,21 +160,35 @@
                 </ul>
             `,
                 coords: [110.428200, -7.591200, 50],
-            },
+        },
+            //{
+                //id: 4164395,
+                //name: " ",
+                //description: `
+                //<h3>DTM Polos</h3>
+                //<img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                //<p>Tempat mengisi perut.</p>
+                //<ul>
+                    //<li><b>Lokasi:</b> Warung Makan</li>
+                    //<li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                //</ul>
+            //`,
+                //coords: [110.428800, -7.592000, 50],
+            //},
                         {
 
                 id: 4127974,
                 name: " ",
                 description: `
-        <div style="text-align:center">
-            <h3>WC Putri</h3>
-            <img src="assets/img/wc.jpg" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
-            <p>Tempat buat pipis.</p>
-            <ul style="text-align:left">
-                <li><b>Lokasi:</b> Bumi Perkemahan Kaliurang</li>
-                <li><b>Koordinat:</b> 110.42786° BT, -7.59171° LS</li>
-            </ul>
-        </div>
+                <div style="text-align:center">
+                    <h3>WC Putri</h3>
+                    <img src="assets/img/wc.jpg" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                    <p>Tempat buat pipis.</p>
+                    <ul style="text-align:left">
+                        <li><b>Lokasi:</b> Bumi Perkemahan Kaliurang</li>
+                        <li><b>Koordinat:</b> 110.42786° BT, -7.59171° LS</li>
+                    </ul>
+                </div>
     `,
                 coords: [110.427743, -7.591640, 50],
 
@@ -191,6 +207,7 @@
                 </ul>
             `,
                 coords: [110.428800, -7.592000, 50],
+                offset: [0, 0, -100]
             },
             {
                 id: 4095608,
@@ -210,7 +227,7 @@
                 id: 4076279,
                 name: " ",
                 description: `
-                <h3>WC Putrea</h3>
+                <h3>WC Putra</h3>
                 <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
                 <p>Tempat mengisi perut.</p>
                 <ul>
@@ -224,7 +241,7 @@
                 id: 4127994,
                 name: " ",
                 description: `
-                <h3>WCnUmum</h3>
+                <h3>WC Umum</h3>
                 <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
                 <p>Tempat mengisi perut.</p>
                 <ul>
@@ -233,12 +250,28 @@
                 </ul>
             `,
                 coords: [110.428800, -7.592000, 50],
+                offset: [0, 0, 100]
             },
             {
                 id: 4128116,
                 name: " ",
                 description: `
-                <h3>Villa HItam</h3>
+                <h3>Villa Hitam</h3>
+                <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+                offset: [0, 0, 10]
+            },
+            {
+                id: 4164184,
+                name: " ",
+                description: `
+                <h3>LOD 2</h3>
                 <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
                 <p>Tempat mengisi perut.</p>
                 <ul>
@@ -249,10 +282,10 @@
                 coords: [110.428800, -7.592000, 50],
             },
             {
-                id: 4155209,
+                id: 4067989,
                 name: " ",
                 description: `
-                <h3>bringin 4</h3>
+                <h3>Gapura</h3>
                 <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
                 <p>Tempat mengisi perut.</p>
                 <ul>
@@ -263,10 +296,10 @@
                 coords: [110.428800, -7.592000, 50],
             },
             {
-                id: 4155211,
+                id: 4163584,
                 name: " ",
                 description: `
-                <h3>bringin 3</h3>
+                <h3>Warung Joglo</h3>
                 <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
                 <p>Tempat mengisi perut.</p>
                 <ul>
@@ -275,8 +308,649 @@
                 </ul>
             `,
                 coords: [110.428800, -7.592000, 50],
-            }
+            },
+            {//beringin 1
+                id: 4163705,
+                name: " ",
+                description: `
+                <h3>Pohon Beringin</h3>
+                <img src="img/pohon/beringin_1.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//beringin 2
+                id: 4163686,
+                name: " ",
+                description: `
+                <h3>Pohon Beringin</h3>
+                <img src="img/pohon/beringin_2.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//beringin 3
+                id: 4163753,
+                name: " ",
+                description: `
+                <h3>Pohon Beringin</h3>
+                <img src="img/pohon/beringin_3.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//beringin 4
+                id: 4163767,
+                name: " ",
+                description: `
+                <h3>Pohon Beringin</h3>
+                <img src="img/pohon/beringin_4.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {
+                id: 4164133,
+                name: " ",
+                description: `
+                <h3>Warung Kita</h3>
+                <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {
+                id: 4164172,
+                name: " ",
+                description: `
+                <h3>Bangunan Rusak</h3>
+                <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {
+                id: 4164291,
+                name: " ",
+                description: `
+                <h3>Villa</h3>
+                <img src="assets/img/warung.png" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//11
+                id: 4164426,
+                name: "",
+                description: `
+                <h3>Pohon Kelapa</h3>
+                <img src="img/pohon/kelapa_11.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Kelapa adalah pohon serbaguna bagi masyarakat tropika. Hampir semua bagiannya dapat dimanfaatkan</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,31 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 7,38 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//35
+                id: 4174270,
+                name: " ",
+                description: `
+                <h3>Pohon Kelapa</h3>
+                <img src="img/pohon/kelapa_35.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Kelapa adalah pohon serbaguna bagi masyarakat tropika. Hampir semua bagiannya dapat dimanfaatkan.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+           
+            {//12
+                id: 4164458,
+                name: " ",
+                description: `
+                <h3>Pohon Kelapa</h3>
+                <img src="img/pohon/kelapa_12.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Kelapa adalah pohon serbaguna bagi masyarakat tropika. Hampir semua bagiannya dapat dimanfaatkan.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,38 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 8,2 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//1
+                id: 4164862,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_1.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,6 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 17,67 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//2
+                id: 4165091,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_2.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,54 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 14,63 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//4
+                id: 4174013,
+                name: "",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_4.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,65 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 15,32 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//5
+                id: 4174014,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_5.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,44 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 9,34 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//6
+                id: 4174016,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_6.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,62 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 13,81 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//7
+                id: 4174019,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_7.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,62 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 14,5 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//8
+                id: 4174022,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_8.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,66 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 14,04 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//9
+                id: 4174024,
+                name: "",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_9.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,42 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 7 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//10
+                id: 4174025,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_10.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,63 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 16,05 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//14
+                id: 4174039,
+                name: "",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_14.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//17
+                id: 4174041,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_17.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//18
+                id: 4174088,
+                name: "",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_18.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//19
+                id: 4174091,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_19.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//20
+                id: 4174093,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_20.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//22
+                id: 4174094,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/puspa_22.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//3
+                id: 4174009,
+                name: "",
+                description: `
+                <h3>Pohon Kecutran</h3>
+                <img src="img/pohon/kecutran_1.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Kecrutan</b> atau <b>Pohon hujan</b> (<i>Spathodea campanulata</i>) adalah pohon yang kuncup bunganya memuncratkan air.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>: 0,42 m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>: 24 m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//13
+                id: 4174032,
+                name: " ",
+                description: `
+                <h3>Pohon Pinus</h3>
+                <img src="img/pohon/pinus_13.JPGg" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Pohon pinus bermanfaat bagi lingkungan karena dapat menghilangkan karbon dioksida dari atmosfer.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//15
+                id: 4174034,
+                name: " ",
+                description: `
+                <h3>Pohon Pinus</h3>
+                <img src="img/pohon/pinus_15.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Pohon pinus bermanfaat bagi lingkungan karena dapat menghilangkan karbon dioksida dari atmosfer.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//16
+                id: 4174035,
+                name: " ",
+                description: `
+                <h3>Pohon Pinus</h3>
+                <img src="img/pohon/pinus_16.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Pohon pinus bermanfaat bagi lingkungan karena dapat menghilangkan karbon dioksida dari atmosfer.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//23
+                id: 4174100,
+                name: " ",
+                description: `
+                <h3>Pohon Puspa</h3>
+                <img src="img/pohon/pohon_23.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Puspa</b>, <b>seru</b>, atau <b>medang gatal</b> (<i>Schima wallichii</i>) adalah sejenis pohon penghasil kayu pertukangan berkualitas sedang. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//30
+                id: 4174106,
+                name: " ",
+                description: `
+                <h3>Pohon Biola Cantik</h3>
+                <img src="img/pohon/biola cantik_30.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Biola cantik</b> (<i>Soleirolia</i> atau <i>Helxine soleirolii</i>)  sering kali digunakan sebagai tanaman hias gantung 
+                    atau ground cover karena kemampuannya menyebar dengan cepat dan menutupi permukaan tanah. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//34
+                id: 4174120,
+                name: "",
+                description: `
+                <h3>Pohon Biola Cantik</h3>
+                <img src="img/pohon/biola cantik_34.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Biola cantik</b> (<i>Soleirolia</i> atau <i>Helxine soleirolii</i>)  sering kali digunakan sebagai tanaman hias gantung 
+                    atau ground cover karena kemampuannya menyebar dengan cepat dan menutupi permukaan tanah. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//40
+                id: 4174124,
+                name: " ",
+                description: `
+                <h3>Pohon Biola Cantik</h3>
+                <img src="img/pohon/biola cantik_40.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Biola cantik</b> (<i>Soleirolia</i> atau <i>Helxine soleirolii</i>)  sering kali digunakan sebagai tanaman hias gantung 
+                    atau ground cover karena kemampuannya menyebar dengan cepat dan menutupi permukaan tanah. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//41
+                id: 4174127,
+                name: "",
+                description: `
+                <h3>Pohon Biola Cantik</h3>
+                <img src="img/pohon/biola cantik_41.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Biola cantik</b> (<i>Soleirolia</i> atau <i>Helxine soleirolii</i>)  sering kali digunakan sebagai tanaman hias gantung 
+                    atau ground cover karena kemampuannya menyebar dengan cepat dan menutupi permukaan tanah. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//42
+                id: 4174128,
+                name: " ",
+                description: `
+                <h3>Pohon Biola Cantik</h3>
+                <img src="img/pohon/biola cantik_42.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Biola cantik</b> (<i>Soleirolia</i> atau <i>Helxine soleirolii</i>)  sering kali digunakan sebagai tanaman hias gantung 
+                    atau ground cover karena kemampuannya menyebar dengan cepat dan menutupi permukaan tanah. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//31
+                id: 4174131,
+                name: "",
+                description: `
+                <h3>Bunga Kupu-Kupu</h3>
+                <img src="img/pohon/bunga kupu-kupu_31.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Pohon kupu-kupu</b> (<i>auhinia purpurea</i>) memiliki bunga yang indah menyerupai sayap kupu-kupu dan warnanya 
+                    yang mencolok, seperti ungu, merah muda, dan putih. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//32
+                id: 4174138,
+                name: "",
+                description: `
+                <h3>mirip pucuk merah2</h3>
+                <img src="img/pohon/pohon_32.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p></p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//33
+                id: 4174261,
+                name: " ",
+                description: `
+                <h3>Pohon Keben</h3>
+                <img src="img/pohon/keben_33.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Butun</b> atau <b>keben</b> (<i>barringtonia asiatica</i>) adalah pohon yang buahnya memiliki manfaat sebagai obat sakit perut, rematik dan obat luka. </p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//36
+                id: 4174275,
+                name: "",
+                description: `
+                <h3>Pohon Kerai Payung</h3>
+                <img src="img/pohon/kerai payung_36.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Kerai payung</b> (<i>filicium decipiens</i>) adalah pohon tropis yang dikenal dengan penampilannya yang menarik, terutama karena daunnya yang lebar dan menyebar seperti payung.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//37
+                id: 4174278,
+                name: "",
+                description: `
+                <h3>Pohon Kerai Payung</h3>
+                <img src="img/pohon/kerai_payung.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Kerai payung</b> (<i>filicium decipiens</i>) adalah pohon tropis yang dikenal dengan penampilannya yang menarik, terutama karena daunnya yang lebar dan menyebar seperti payung.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//38
+                id: 4174286,
+                name: "",
+                description: `
+                <h3>Pohon Kerai Payung</h3>
+                <img src="img/pohon/kerai payung_38.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Kerai payung</b> (<i>filicium decipiens</i>) adalah pohon tropis yang dikenal dengan penampilannya yang menarik, terutama karena daunnya yang lebar dan menyebar seperti payung.</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//39
+                id: 4174479,
+                name: " ",
+                description: `
+                <h3>Pohon Preh</h3>
+                <img src="img/pohon/preh_39.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p><b>Pohon preh</b> (<i>ficus ribes reinw</i>) merupakan salah satu tanaman jenis beringin yang memiliki bentuk daun yang menyerupai semak-semak</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Diameter batang</b></td><td>:  m</td></tr>
+                <tr><td><b>Tinggi pohon</b></td><td>:  m</td></tr>
+                </table>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//sekuter dalam
+                id: 4174780,
+                name: " ",
+                description: `
+                <h3>Fun Scoot Kaliurang </h3>
+                <img src="img/pohon/biola cantik_42.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Jam buka</p>
+                <table style="font-size: 13px">
+                <tr><td><b>Setiap hari</b></td><td> 08.00 - 17.30</td></tr>
+                </table>
+                <a href="https://www.google.com/maps/place/Fun+Scoot+Kaliurang/data=!4m2!3m1!19sChIJuVryk-Znei4Rc0F3ig52NeI"
+                target="_blank" rel="noopener noreferrer"> Menuju lokasi</a>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//sekuter luar
+                id: 4174885,
+                name: " ",
+                description: `
+                <h3>Sekuter</h3>
+                <img src="img/pohon/biola cantik_42.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+            {//jalan
+                id: 4175603,
+                name: " ",
+                description: `
+                <h3>Jalan</h3>
+                <img src="img/pohon/biola cantik_42.JPG" alt="wc" style="width:100%;max-width:300px;border-radius:8px;margin:10px 0;">
+                <p>Tempat mengisi perut.</p>
+                <ul>
+                    <li><b>Lokasi:</b> Warung Makan</li>
+                    <li><b>Koordinat:</b> 110.42713° BT, -7.59223° LS</li>
+                </ul>
+            `,
+                coords: [110.428800, -7.592000, 50],
+            },
+
         ];
+
+        
 
         // Ganti dengan token milik kamu sendiri dari Cesium Ion
         Cesium.Ion.defaultAccessToken =
@@ -288,31 +962,57 @@
             baseLayerPicker: false,  // opsional: hilangkan tombol pilih base layer
         });
 
-
-
         // ========== TAMBAHKAN SEMUA MODEL ==========
         const tilesets = [];
-        for (const model of modelAssets) {
-            const tileset = await Cesium.Cesium3DTileset.fromIonAssetId(model.id);
-            viewer.scene.primitives.add(tileset);
-            tilesets.push({ tileset, ...model });
 
-            // Tambahkan label
-            viewer.entities.add({
-                name: model.name,
-                position: Cesium.Cartesian3.fromDegrees(...model.coords),
-                label: {
-                    text: model.name,
-                    font: "16px sans-serif",
-                    fillColor: Cesium.Color.WHITE,
-                    outlineColor: Cesium.Color.BLACK,
-                    outlineWidth: 2,
-                    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-                    verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                    pixelOffset: new Cesium.Cartesian2(0, -20)
-                }
+        for (const model of modelAssets) {
+            
+            Cesium.Cesium3DTileset.fromIonAssetId(model.id).then(tileset => {
+
+                viewer.scene.primitives.add(tileset);
+                tilesets.push({ tileset, ...model });
+                
+                // Tambah label
+                
+                viewer.entities.add({
+                    name: model.name,
+                    position: Cesium.Cartesian3.fromDegrees(...model.coords),
+                    label: {
+                        text: model.name,
+                        font: "16px sans-serif",
+                        fillColor: Cesium.Color.WHITE,
+                        outlineColor: Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                        pixelOffset: new Cesium.Cartesian2(0, -20)
+                    }
+                });
+
+                // Translasi
+                tileset.readyPromise.then(() => {
+                    if (model.offset) {
+                        const translation = new Cesium.Cartesian3(
+                            model.offset[0],
+                            model.offset[1],
+                            model.offset[2]
+                        );
+                        tileset.modelMatrix = Cesium.Matrix4.multiply(
+                            tileset.modelMatrix,
+                            Cesium.Matrix4.fromTranslation(translation),
+                            new Cesium.Matrix4()
+                        );
+                    }
+                });
+
+            }).catch(err => {
+                console.error("Gagal load model ID:", model.id, err);
             });
+
         }
+
+        
+
 
         // ========== ATUR POSISI KAMERA ==========
         viewer.camera.flyTo({
@@ -325,18 +1025,7 @@
             duration: 3
         });
 
-        tileset.readyPromise.then(() => {
-        // koordinat lokasi asli
-        const lon = 110.427743;
-        const lat = -7.591640;
-        const height = 100;
-    
-        const translation = Cesium.Cartesian3.fromDegrees(lon, lat, height);
-        tileset.root.transform = Cesium.Transforms.eastNorthUpToFixedFrame(translation);
-    
-        viewer.zoomTo(tileset);
-    });
-
+        
         // ========== TAMBAHKAN INTERAKSI KLIK ==========
         const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
         handler.setInputAction((movement) => {
