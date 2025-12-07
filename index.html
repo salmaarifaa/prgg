@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PRGG24-Model 3D Bumi Perkemahan Karang Pramuka Sleman</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/Lambang UGM PNG.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="img/LOGO UGM-WHITE.png" style="max-width: 50px;"></img>
+            <h1 class="m-0" style="color: white !important;;">HAPSA</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a id="nav-beranda" href="index.html" class="nav-item nav-link active">Beranda</a>
+                <div class="nav-item dropdown">
+                    <a id="nav-tentang" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tentang</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <a href="#latar_belakang" class="dropdown-item">Latar Belakang</a>
+                        <a href="#peralatan" class="dropdown-item">Peralatan</a>
+                        <a href="#software" class="dropdown-item"><i>Software</i></a>
+                    </div>
+                </div>
+                <a id="nav-tahapan" href="#tahapan" class="nav-item nav-link">Tahapan</a>
+                <a id="nav-dokumentasi" href="#dokumentasi" class="nav-item nav-link">Dokumentasi</a>
+                <a id="nav-tim" href="#tim" class="nav-item nav-link">Tim</a>
+                <div class="nav-item dropdown">
+            </div>
+            <a href="Cesium.html" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block" style="background-color: white !important;; color: #0C2B4E;">Model 3D<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/utama.jpeg" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown" style="font-size: 50px; width: 110%;">Pemodelan 3D Kawasan Bumi 
+                                        Perkemahan Karang Pramuka Kaliurang</h1>
+                                    <h1 class="display-1 text-white mb-5 animated slideInDown" style="font-size: 30px;;">Integrasi <i>Drone</i> LiDAR dan SLAM-<i>Based Mapping</i></h1>
+                                    <a href="Cesium.html" class="btn btn-primary py-sm-3 px-sm-4">Lihat Model 3D</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- About Start -->
+    <div class="container-xxl py-5" id="latar_belakang">
+        <div class="container">
+            <div class="row g-5 align-items-end">
+                <div class="col-lg-4 col-md-5 wow fadeInUp" data-wow-delay="0.1s" style="align-items: center; justify-content: center; display: flex; height: 100vh; max-height: 500px;">
+                    <img class="img-fluid rounded" data-wow-delay="0.1s" src="img/kemah.PNG" >
+                </div>
+                <div class="col-lg-8 col-md-7 wow fadeInUp" data-wow-delay="0.3s">
+                    <h1 class="display-5 mb-4">LATAR BELAKANG</h1>
+                    <p class="mb-4" style="text-align: justify;">       Bumi Perkemahan Karang Pramuka Kaliurang adalah area perkemahan yang berada di lereng Gunung Merapi, tepatnya di kawasan wisata Kaliurang, Sleman, Yogyakarta. 
+                        Tempat ini menawarkan suasana alam yang sejuk dan asri dengan pepohonan pinus yang rindang, cocok untuk kegiatan kepramukaan, outbound, pelatihan, maupun rekreasi alam. 
+                        Bahkan saat ini terdapat penyewaan skuter dan atv yang dapat digunakan pengunjung untuk berkeliling area perkemahan dan menikmati pemandangan sekitar dengan lebih santai.
+                        Fasilitas dasar seperti area camping, aula terbuka, toilet, serta akses air bersih tersedia untuk mendukung kenyamanan pengunjung. Potensi wisata alam yang ada di Kaliurang 
+                        ini cukup tinggi sehingga diperlukan visualisasi 3D yang akurat untuk mendukung perencanaan dan pengembangan kawasan. UAV LiDAR mampu menyediakan data spasial terbaru namun 
+                        memiliki keterbatasan dalam menangkap detail vertikal bangunan. Untuk mengatasinya, teknologi SLAM digunakan sebagai pelengkap karena mampu memetakan area kompleks secara 
+                        real-time dan detail, termasuk lokasi yang sulit dijangkau. Integrasi data UAV LiDAR dan SLAM menghasilkan point cloud yang lebih lengkap dan bersih, sehingga siap digunakan 
+                        untuk analisis dan perencanaan kawasan secara lebih optimal.</p>
+                    <a class="btn btn-primary py-3 px-4" href="https://www.google.com/maps/place/Karang+Pramuka+Camping+Ground/@-7.5912326,110.427782,1117m/data=!3m2!1e3!4b1!4m6!3m5!1s0x2e7a672b15748463:0xa34a20ea71dbfaf8!8m2!3d-7.5912326!4d110.427782!16s%2Fg%2F11cncpbp2s?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D">Google Maps</a>
+                </div>
+                <div class="col-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row g-5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->        
+
+    <!-- Peralatan yang Digunakan-->
+    <div class="container-xxl py-5" id="peralatan">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-5">Peralatan yang Digunakan</h1>
+            </div>
+            <div class="row g-4 software-row"  >
+                <div class="col-lg-3 col-md-6 wow fadeInUp"  data-wow-delay="0.1s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/tool1.png" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/tool1.jpg" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">FJD Trion P1</h4>
+                            <p class="mb-4">FJD Trion P1 adalah pemindai LiDAR portabel berbasis teknologi SLAM yang mampu melakukan pemetaan 3D tanpa membutuhkan sinyal GNSS. Dengan akurasi sekitar ±2 cm dan bobot yang ringan, alat ini cocok untuk pemindaian area indoor maupun outdoor secara cepat dan efisien.</p>
+                            <a class="btn btn-sm" href="https://www.fjdynamics.com/product/fjd-trion-p1-lidar-scanner">
+                                <i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/tool2.png" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/tool2.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">SG7 Geomate GNSS</h4>
+                            <p class="mb-4">SG7 Geomate adalah receiver GNSS geodetik dengan teknologi RTK dan sensor IMU untuk meningkatkan stabilitas pengukuran. Perangkat ini mampu melacak berbagai konstelasi satelit dan memberikan hasil survei presisi tinggi untuk kebutuhan pemetaan, konstruksi, dan pekerjaan geospasial lainnya.</p>
+                            <a class="btn btn-sm" href="https://www.geomate.sg/products/sg7">
+                                <i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/tool3.png" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/tool3.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">DJI Zenmuse L3</h4>
+                            <p class="mb-4">DJI Zenmuse L3 adalah sensor LiDAR udara yang mengintegrasikan laser jarak jauh, kamera 100 MP, dan sistem navigasi presisi dalam satu modul. Cocok dipasang pada drone Matrice seri 300/350, alat ini mampu menghasilkan point cloud berkualitas tinggi dengan jangkauan luas dan penetrasi vegetasi yang baik.</p>
+                            <a class="btn btn-sm" href="https://enterprise.dji.com/zenmuse-l3">
+                                <i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Peralatan yang Digunakan-->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5" id="software">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-5"><i>Software</i> yang Digunakan</h1>
+            </div>
+            <div class="row g-4" >
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
+                    <div class="service-item rounded d-flex h-100" >
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/app1.jpg" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/tool1.jpg" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">FJD Trion</h4>
+                            <p class="mb-4">FJD Trion Scan adalah aplikasi pendamping untuk perangkat LiDAR FJDynamics yang berfungsi untuk memantau pemindaian, menampilkan point cloud real-time, dan mengelola data hasil pemindaian. Sedangkan FJD Trion Model adalah aplikasi desktop untuk memproses data LiDAR dari perangkat FJD Trion.</p>
+                            <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.lidar.fjd&hl=id&pli=1"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/app2.jpg" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/tool3.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">DJI Terra</h4>
+                            <p class="mb-4">Perangkat lunak pemetaan yang dirancang oleh DJI untuk memproses data dari drone guna membuat model 3D dan rekonstruksi 2D. Perangkat lunak ini memanfaatkan teknologi inti fotogrametri dan LiDAR untuk menghasilkan data geospasial yang akurat</p>
+                            <a class="btn btn-sm" href="https://enterprise.dji.com/dji-terra"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/agisoft.png" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/agisoft.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">Agisoft Metashape</h4>
+                            <p class="mb-4">Agisoft Metashape adalah <i>software</i> fotogrametri profesional untuk menghasilkan orthophoto, DEM, dan model 3D berkualitas tinggi dari foto udara atau darat.</p>
+                            <a class="btn btn-sm" href="https://www.agisoft.com/"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/app3.png" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/app3.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">Global Mapper</h4>
+                            <p class="mb-4">Perangkat lunak sistem informasi geografis (GIS) yang dikembangkan oleh Blue Marble Geographics untuk sistem operasi Windows. Perangkat lunak ini menyediakan berbagai alat untuk mengelola, menganalisis, dan memvisualisasikan data geospasial.</p>
+                            <a class="btn btn-sm" href="https://global-mapper.com/global-mapper/"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/app4.jpg" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/app4.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">Cloud Compare</h4>
+                            <p class="mb-4">Perangkat lunak bebas dan sumber terbuka untuk memproses dan mengedit awan titik (point cloud) 3D dan jaring segitiga (mesh segitiga), yang awalnya dirancang untuk membandingkan dua awan titik 3D yang padat. </p>
+                            <a class="btn btn-sm" href="https://www.cloudcompare.org/"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/maptek.jpg" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/maptek.jpeg" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">Maptek</h4>
+                            <p class="mb-4">Maptek PointStudio adalah <i>software</i> pemrosesan point cloud industri untuk pertambangan dan rekayasa, digunakan untuk analisis geoteknik, volumetrik, dan kontrol deformasi.</p>
+                            <a class="btn btn-sm" href="https://www.maptek.com/"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/app5.jpg" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/app5.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">Sketchup</h4>
+                            <p class="mb-4">Perangkat lunak pemodelan 3D yang intuitif dan serbaguna untuk membuat, memodifikasi, dan berbagi desain 3D. <i>Software</i> ini banyak digunakan di berbagai bidang seperti arsitektur, desain interior, dan desain produk karena antarmukanya yang mudah dipelajari.</p>
+                            <a class="btn btn-sm" href="https://sketchup.trimble.com/en?srsltid=AfmBOoq-wWhYeeAHApM8TiW-IQBisq5J-6yL90oc96GYmJ1FUAzQrQpY"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded d-flex h-100">
+                        <div class="service-img rounded">
+                            <img class="img-fluid" src="img/app6.jpg" alt="">
+                        </div>
+                        <div class="service-text rounded p-5">
+                            <div class="btn-square rounded-circle mx-auto mb-3">
+                                <img class="img-fluid" src="img/icon/app6.png" alt="Icon">
+                            </div>
+                            <h4 class="mb-3">CesiumJs</h4>
+                            <p class="mb-4">Pustaka JavaScript open-source yang digunakan untuk membuat visualisasi peta dan bola dunia 3D di web, serta membangun aplikasi berbasis geospasial 3D. Pustaka ini memungkinkan pengembang untuk memvisualisasikan data 3D seperti citra satelit, rupa bumi, dan Ubin 3D (3D Tiles).</p>
+                            <a class="btn btn-sm" href="https://cesium.com/platform/cesiumjs/"><i class="fa fa-plus text-primary me-2"></i>Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Diagram Alir Start -->
+    <div class="container-xxl py-5" id="diagram alir">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="display-5 mb-5">Diagram Alir</h1>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="rounded overflow-hidden shadow-sm">
+                        <img class="img-fluid w-100" src="img/alirr.jpeg" alt="Diagram Alir Proses Pemetaan 3D">
+                    </div>
+                    <p class="text-center mt-3 text-muted">
+                        Gambar 1. Diagram alir proses pemetaan model 3D Bumi Perkemahan.
+                    </p>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Diagram Alir End -->
+
+    <!-- Projects Start -->
+    <div class="container-xxl py-5" id="tahapan">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="display-5 mb-5">Tahapan Akuisisi Dan Pengolahan Data</h1>
+            </div>
+
+            <div class="row wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-12 text-center">
+                    <ul class="list-inline rounded mb-5" id="portfolio-flters">
+                        <li class="mx-2" data-filter="*">Semua</li>
+                        <li class="mx-2" data-filter=".second">Akuisisi Data</li>
+                        <li class="mx-2" data-filter=".third">Pengolahan Data</li>
+                        <li class="mx-2" data-filter=".fourth">Cek Akurasi</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row g-4 portfolio-container">
+                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp"  data-wow-delay="0.1s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/akuisisignss.jpg" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Akuisisi Data GNSS</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Akuisisi GNSS dilakukan untuk membuat dua titik Bench Mark (BM) permanen sebagai referensi akurat dalam pengukuran LiDAR. Pengukuran menggunakan GNSS geodetik dengan metode statik selama 2 jam menggunakan SG7 Geomate GNSS.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/akuisisidrone.jpg" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Akuisi Data Drone Lidar</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Akuisisi drone LiDAR dirancang dengan jalur terbang otomatis dari utara ke selatan, ketinggian 100 meter, dan jarak antar lintasan 5 meter untuk cakupan luas dan overlap optimal. Drone dilengkapi sensor LiDAR, GNSS RTK, dan IMU, menghasilkan point cloud rapat serta data foto untuk orthophoto</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/akuisisislam.jpg" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Akuisi Data Slam Lidar</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Akuisisi SLAM LiDAR menggunakan FJD Trion P1 difokuskan pada area detail LOD3 seperti bumi perkemahan dan villa. Perangkat dipasang GPS NTRIP untuk koordinat real-time, dikendalikan via FJD Trion Scan, dan dibawa melingkar (loop closure) dengan sudut 45°.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/ortho.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Pembuatan Orthophoto</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Pengolahan orthophoto drone dimulai dengan koreksi orientasi dan posisi citra menggunakan metode Post-Processed Kinematic (PPK) dengan perangkat lunak Red Toolbox. Setelah koreksi, foto diolah menjadi orthomosaic menggunakan <i>software</i> Agisoft, menghasilkan orthophoto resolusi tinggi yang bergeoreferensi dan digunakan sebagai dasar dalam digitasi footprint bangunan dan penyusunan basemap.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/klasifikasidrone.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Klasifikasi Point Cloud Drone Lidar</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Point cloud drone LiDAR diolah menggunakan DJI Terra dengan mengimpor data LiDAR beserta koordinat base station. DJI Terra melakukan proses georeferensi otomatis dan menghasilkan klasifikasi awal antara ground dan non-ground. Klasifikasi ini mempermudah pemisahan permukaan tanah dari objek seperti bangunan dan vegetasi. Output berupa file LAS yang siap digunakan dalam analisis lanjutan dan pembuatan model elevasi..</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/klasifikasislam.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Klasifikasi Point Cloud Slam Lidar</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Data SLAM yang awalnya berada dalam format .fjdslam dikonversi menjadi LAS menggunakan perangkat lunak FJD Trion. Setelah point cloud terkonversi, klasifikasi dilakukan di Global Mapper untuk memisahkan titik ground dan non-ground. Karena karakteristik SLAM yang sensitif terhadap perubahan elevasi, koreksi manual diperlukan untuk memperbaiki kesalahan klasifikasi pada area curam atau objek rapat agar ground dapat teridentifikasi dengan benar.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/dtm.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Pembuatan Digital Terrain Model</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">DTM dibuat dengan mengekstraksi titik-titik ground dari seluruh point cloud yang telah diklasifikasi. Data ground tersebut diinterpolasi untuk menghasilkan permukaan tanah yang benar-benar mewakili topografi asli tanpa pengaruh pohon atau bangunan.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/basemap.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Pembuatan Basemap</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Orthophoto dan DTM digabungkan di SketchUp dengan terlebih dahulu memasukkan kontur dari DTM kemudian menyesuaikan posisi orthophoto hingga tepat berada di permukaan tersebut. Orthophoto kemudian dijadikan tekstur pada permukaan DTM sehingga terbentuk basemap 3D yang realistis. Hasil basemap ini digunakan sebagai pondasi visual bagi pemodelan bangunan dan lingkungan sekitar.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/3dlod2.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Pembuatan Model 3D LOD2</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Model LoD 2 diawali dengan digitasi footprint bangunan dari orthophoto menggunakan QGIS. Setiap footprint diberi atribut ketinggian yang diambil dari point cloud drone. Footprint tersebut kemudian diekstrusi di SketchUp untuk membentuk bangunan LoD 1, sebelum akhirnya ditambahkan bentuk atap dan detail struktur dasar sehingga menjadi LoD 2. Model ini menggambarkan bangunan dengan bentuk geometri dasar namun belum detail fasad.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item third wow fadeInUp mx-auto" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/3dlod3.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Pembuatan Model 3D LOD3</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Model LoD 3 dibuat untuk area yang memiliki point cloud SLAM beresolusi tinggi. Data point cloud SLAM dan drone diintegrasikan kemudian ditampilkan di SketchUp menggunakan plugin Undet. Dengan memanfaatkan kerapatan titik yang sangat tinggi, geometri bangunan dapat direkonstruksi secara akurat hingga mencakup dinding, jendela, pintu, struktur atap, dan ornamen kecil lainnya. LoD 3 menghasilkan model dengan detail visual mendekati kondisi nyata.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item fourth wow fadeInUp mx-auto" data-wow-delay="0.3s">
+                    <div class="portfolio-inner rounded">
+                        <img class="img-fluid" src="img/akuisisi dan pengolahan data/validasi.png" alt="">
+                        <div class="portfolio-text">
+                            <h4 class="text-white mb-4">Cek AKurasi</h4>
+                            <p class="text-white mb-4" style="padding-left: 20px; padding-right: 20px; text-align: justify;">Validasi dilakukan dengan membandingkan 13 dimensi objek pada model 3D dengan pengukuran langsung menggunakan pita ukur. Selisih antara dimensi model dan lapangan dihitung untuk memperoleh nilai RMSE, yang menghasilkan akurasi sebesar 0,0516 meter. Nilai ini menunjukkan bahwa model 3D memiliki ketelitian tinggi dan merepresentasikan kondisi lapangan dengan sangat baik.</p>
+                            <div class="d-flex">
+                                <a href="img/service-1.jpg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Projects End -->
+
+    <!--Dokumentasi-->
+    <div id="dokumentasi" class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-5">Dokumentasi Kegiatan</h1>
+            </div>
+            <div class="dokumentasi">
+                <img class="img" src="img/dokumentasi/drone.PNG" alt="">
+                <img class="img" src="img/dokumentasi/ber5.jpeg" alt="" style="max-width: 350px;">
+                <img class="img" src="img/dokumentasi/rtk.JPG" alt="" style="max-width: 120px;">
+                <img class="img" src="img/dokumentasi/kumpul.jpeg" alt="">
+                <img class="img" src="img/dokumentasi/tanam bm.JPG" alt="" style="max-width: 130px;">
+                <img class="img" src="img/dokumentasi/validasi.JPG" alt="">
+                <img class="img" src="img/dokumentasi/slam.PNG" alt="" style="max-width: 250px;">
+                <img class="img" src="img/dokumentasi/olah lab.JPG" alt="">
+                <img class="img" src="img/dokumentasi/slam3.PNG" alt="" style="max-width: 150px;">
+                <img class="img" src="img/dokumentasi/monyet.jpeg" alt="">
+                <img class="img" src="img/dokumentasi/ngedrone.jpeg" alt="" style="max-width: 270px;">
+                <img class="img" src="img/dokumentasi/rtk2.JPG" alt="" style="max-width: 130px;">
+                <img class="img" src="img/dokumentasi/bm2.jpeg" alt="" style="max-width: 130px;">
+                <img class="img" src="img/dokumentasi/olah2.JPG" alt="">
+                <img class="img" src="img/dokumentasi/semua orang.jpeg" alt="" style="max-width: 500px;">
+                <img class="img" src="img/dokumentasi/bm1.jpeg" alt="" style="max-width: 190px;">
+                <img class="img" src="img/dokumentasi/selfie.jpeg" alt="" style="max-width: 185px;">
+            </div>
+            
+        </div>
+    </div>
+    <!-- Projects End -->
+
+    <!-- Team Start -->
+    <div id="tim" class="container-fluid px-0 py-0">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-5">Tim Kami</h1>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Putri -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/putri.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Putri Kartika Nurillah</h4>
+                            <p class="text-primary">22/494407/TK/54226</p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/putrikann?igsh=MTJjbXM0aHFhZDZmNQ=="><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/putri-kartika-nurillah-333604255?trk=people-guest_people_search-card"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salma -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/salma2.jpeg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Salma Arifa Tsani</h4>
+                            <p class="text-primary">22/505826/TK/55379</p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/salmaarifa_?igsh=MWRoZ3Q5cnE2MXl0bA=="><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/salma-arifa"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hasna -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/hasna.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Hasnatyas Surya Tsabita</h4>
+                            <p class="text-primary">22/493553/TK/54076</p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/hasnatyass?igsh=a3Z3b2t6ampmdml6"><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/hasnatyas-surya-tsabita-045125245"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Azhar -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/azhar.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Azhar Aryananta Pradana</h4>
+                            <p class="text-primary">22/499981/TK/54783</p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/azhar.aryananta?utm_source=qr&igsh=MnBvYm94emtxaG5t"><i class="fab fa-instagram"></i>
+                            <a class="btn btn-link text-light" href="https://id.linkedin.com/in/azhar-aryananta-pradana-71144b249"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alif -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/alif.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Alif Karim</h4>
+                            <p class="text-primary">22/498755/TK/54719</p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/alka_rim12?igsh=MTU2NHgwOTYxZ3RqZw=="><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/alifkarim?trk=people-guest_people_search-card"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- Tim PPM-->
+            <div class="row g-4 justify-content-center">
+
+                <!-- Aziz -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/aziz.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Aziz Mulya Affandy</h4>
+                            <p class="text-primary"></p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/azismulyaff?igsh=MXVwYmJveHdoeDRrdA=="><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/azismulya"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Fiqri -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/fiqri.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Fiqri Fahra</h4>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/fiqfahra?igsh=MXJsOHJqbHltMzR5Ng=="><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/fiqrifahra"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sam -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/sam.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Muhammad Azhar Rafi' Samudra</h4>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/rafismdr?igsh=MnYwNHJjdGxmMnd4"><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/muhammad-azhar-rafi-samudra"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Lisa -->
+                <div class="col-lg-2 col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/lisa.jpg" alt="">
+                        <div class="team-text">
+                            <h4 class="mb-0">Lisa</h4>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/hasnatyass?igsh=a3Z3b2t6ampmdml6"><i class="fab fa-instagram"></i>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/hasnatyas-surya-tsabita-045125245"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!--Dosen Pembimbing-->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-5">Dosen Pembimbing</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item rounded">
+                        <img class="img-fluid" src="img/pak ruli.jpg" alt="" style="max-width: 270px; display: flex; justify-self: center;">
+                        <div class="team-text">
+                            <h4 class="mb-0">Ir. Ruli Andaru, S.T., M.Eng., Ph.D.</h4>
+                            <p class="text-primary">NIP. 198102242012121002</p>
+                            <div class="team-social d-flex">
+                                <a class="btn btn-square rounded-circle me-2" href="https://www.instagram.com/ruliandaru?igsh=MTJ5NG5kcThhdDhrNg=="><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-link text-light" href="https://id.linkedin.com/in/ruli-andaru-b42a3798"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Alamat Kantor</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jalan Grafika No. 2, Bulaksumur, Yogyakarta, 55281</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(0274) 520226</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>geodesi@ugm.ac.id</p>
+                    <div class="d-flex pt-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="mailto:prgghapsa@gmail.com">PRGG 24</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script>
+    document.addEventListener("scroll", () => {
+
+        const mapping = {
+            beranda: "nav-beranda",
+            tentang: "nav-tentang",
+            latar_belakang: "nav-tentang",
+            peralatan: "nav-tentang",
+            software: "nav-tentang",
+            tahapan: "nav-tahapan",
+            dokumentasi: "nav-dokumentasi",
+            tim: "nav-tim"
+        };
+
+        const ids = Object.keys(mapping);
+        let current = "";
+
+        if (window.scrollY < 200) {
+            current = "beranda";
+        } else {
+            ids.forEach(id => {
+                const sec = document.getElementById(id);
+                if (!sec) return;
+
+                const rect = sec.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    current = id;
+                }
+            });
+        }
+
+        // Update navbar
+        document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+            link.classList.remove("active");
+            if (link.id === mapping[current]) {
+                link.classList.add("active");
+            }
+        });
+    });
+    </script>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/parallax/parallax.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
