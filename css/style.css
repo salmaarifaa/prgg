@@ -147,10 +147,6 @@ h6,
     .navbar .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
-
-    #img-judul {
-        max-width:50px !important;
-    }
 }
 
 @media (min-width: 992px) {
@@ -221,10 +217,6 @@ h6,
 
     #judul-utama {
         font-size: 2.7rem !important;
-    }
-
-    #img-judul {
-        max-width:30px !important;
     }
 }
 
