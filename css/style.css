@@ -220,7 +220,7 @@ h6,
     }
 
     #img-judul {
-        max-width:30px;
+        max-width:30px !important;
     }
 }
 
