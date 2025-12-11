@@ -149,7 +149,7 @@ h6,
     }
 
     #img-judul {
-        max-width:50px !important;
+        max-width:50px;
     }
 }
 
@@ -224,7 +224,7 @@ h6,
     }
 
     #img-judul {
-        max-width:30px !important;
+        max-width:30px;
     }
 }
 
