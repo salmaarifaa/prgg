@@ -213,6 +213,8 @@ h6,
 
     #judul-mobile {
         font-size: 1.5rem !important;
+        max-width: 150px !important;   /* batas width supaya turun 2 baris */
+        white-space: normal !important;
     }
 
     #judul-utama {
